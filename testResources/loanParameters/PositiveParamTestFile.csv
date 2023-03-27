@@ -1,0 +1,8 @@
+Positive Testing
+Amount,Period,Interest Rate
+500.0,1,10
+5000.0,3,10
+500.0,4,6
+5000.0,5,6
+5001.0,1,8
+10000.0,5,5

@@ -1,0 +1,7 @@
+Negative Testing for amount and interest rate
+Amount,Interest Rate
+499,-
+10001,-
+0,-
+"Hello World",-
+,-
