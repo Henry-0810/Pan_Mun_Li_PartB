@@ -1,0 +1,220 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Loan</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">&lt;empty package name&gt;</a>
+</div>
+
+<h1>Coverage Summary for Class: Loan (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Loan</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (10/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    70%
+  </span>
+  <span class="absValue">
+    (21/30)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;
+&nbsp;public class
+&nbsp;Loan {
+&nbsp;
+&nbsp;//----------------------------------
+&nbsp;//    Data Members
+&nbsp;//----------------------------------
+&nbsp;    // Constant for the number of months in a year
+<b class="fc">&nbsp;    private final int MONTHS_IN_YEAR = 12;</b>
+&nbsp;    // The amount of the loan
+&nbsp;    private double loanAmount;
+&nbsp;    // Yearly interest rate
+&nbsp;    private double annualRate;
+&nbsp;    //The monthly interest rate
+&nbsp;    private double monthlyInterestRate;
+&nbsp;    // The number of monthly payments
+&nbsp;    private int numberOfPayments;
+&nbsp;
+&nbsp;    //----------------------------------
+&nbsp;//    Constructor
+&nbsp;//----------------------------------
+<b class="nc">&nbsp;    public Loan() {</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //Creates a new Loan object with passed values.
+<b class="fc">&nbsp;    public Loan(double amount, int period) {</b>
+<b class="fc">&nbsp;        setAmount(amount);</b>
+<b class="fc">&nbsp;        setPeriod(period);</b>
+<b class="fc">&nbsp;        setRate(period);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    //Returns the loan amount.
+&nbsp;    public double getAmount() {
+<b class="fc">&nbsp;        return loanAmount;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //Returns the loan period in the number of years.
+&nbsp;    public int getPeriod()
+&nbsp;    {
+<b class="fc">&nbsp;        return numberOfPayments / MONTHS_IN_YEAR;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //Returns the annual interest rate.
+<b class="fc">&nbsp;    public double getRate() { return annualRate; }</b>
+&nbsp;
+&nbsp;    //Returns the monthly payment
+&nbsp;    public double getMonthlyPayment() {
+&nbsp;        double monthlyPayment;
+<b class="fc">&nbsp;        monthlyPayment = (loanAmount * monthlyInterestRate)</b>
+<b class="fc">&nbsp;                / (1 - Math.pow(1 / (1 + monthlyInterestRate),</b>
+&nbsp;                numberOfPayments));
+<b class="fc">&nbsp;        return monthlyPayment;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //Returns the total payment
+&nbsp;    public double getTotalPayment() {
+&nbsp;        double totalPayment;
+<b class="fc">&nbsp;        totalPayment = getMonthlyPayment() * numberOfPayments;</b>
+<b class="fc">&nbsp;        return totalPayment;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //Sets the loan amount of this loan.
+&nbsp;    private void setAmount(double amount) throws IllegalArgumentException {
+&nbsp;
+<b class="fc">&nbsp;        if (amount &lt;= 0.0) {</b>
+<b class="nc">&nbsp;            throw new IllegalArgumentException();</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        loanAmount = amount;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    //Sets the interest rate of this loan.
+&nbsp;    private void setRate(int period) {
+&nbsp;
+<b class="fc">&nbsp;        if((loanAmount &gt;=500) &amp;&amp; (loanAmount &lt;=5000)) {</b>
+<b class="fc">&nbsp;            if (period &gt;= 1 &amp;&amp; period &lt;= 3) {</b>
+<b class="fc">&nbsp;                annualRate = 10;</b>
+&nbsp;
+&nbsp;            } else {
+&nbsp;
+<b class="nc">&nbsp;                annualRate = 6;</b>
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        else if ((loanAmount &gt;=5001) &amp;&amp; (loanAmount &lt;=10000))</b>
+&nbsp;        {
+<b class="nc">&nbsp;            if(period &gt;=1 &amp;&amp; period &lt;= 3 ){</b>
+<b class="nc">&nbsp;                annualRate = 8;</b>
+&nbsp;
+&nbsp;            }
+&nbsp;
+&nbsp;            else
+&nbsp;            {
+<b class="nc">&nbsp;                annualRate = 5;</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;        else
+&nbsp;        {
+<b class="nc">&nbsp;            throw new IllegalArgumentException();</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;            monthlyInterestRate = annualRate / 100.0 / MONTHS_IN_YEAR;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        //Sets the loan period of this loan.
+&nbsp;        private void setPeriod (int periodInYears)
+&nbsp;        {
+<b class="fc">&nbsp;            if (periodInYears &lt; 1 || periodInYears &gt; 5)</b>
+<b class="nc">&nbsp;                throw new IllegalArgumentException();</b>
+&nbsp;            else
+<b class="fc">&nbsp;                numberOfPayments = periodInYears * MONTHS_IN_YEAR;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-03-29 12:58</div>
+</div>
+</body>
+</html>

@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -47,7 +48,7 @@ class LoanTest {
         assertEquals(expectedTotalPayment,Double.parseDouble(String.format("%.2f",loan.getTotalPayment())));
     }
 
-    //Order 3 to 7 is to test private members and private method such as setters
+    //Order 3 to 8 is to test private members and private method such as setters
     //Testing the private members that are used in setRate() method
     @Test
     @Order(3)
@@ -86,6 +87,22 @@ class LoanTest {
     }
     @Test
     @Order(5)
+    public void testLoanAmount() throws Exception {
+        System.out.println("Testing private member loanAmount ...\n");
+        Loan loan = new Loan(2500,3);
+
+        Class<? extends Loan> secretClass = loan.getClass();
+        Field loanAmountField = secretClass.getDeclaredField("loanAmount");
+
+        loanAmountField.setAccessible(true);
+        double result = loanAmountField.getDouble(loan);
+
+        assertEquals(2500,result);
+    }
+
+
+    @Test
+    @Order(6)
     public void testSetRate() throws Exception {
         System.out.println("Test private method setRate() ...\n");
         Loan loan = new Loan();
@@ -130,22 +147,6 @@ class LoanTest {
         });
     }
 
-    //Testing loanAmount private member
-    @Test
-    @Order(6)
-    public void testLoanAmount() throws Exception {
-        System.out.println("Testing private member loanAmount ...\n");
-        Loan loan = new Loan(2500,3);
-
-        Class<? extends Loan> secretClass = loan.getClass();
-        Field loanAmountField = secretClass.getDeclaredField("loanAmount");
-
-        loanAmountField.setAccessible(true);
-        double result = loanAmountField.getDouble(loan);
-
-        assertEquals(2500,result);
-    }
-
     //setAmount() method is worth testing because it throws an exception in the method
     @Test
     @Order(7)
@@ -167,10 +168,31 @@ class LoanTest {
         });
     }
 
-    //Order 8 to 10 is to test the parameters (positive test and negative test)
+    @Test
+    @Order(8)
+    public void testSetPeriod() throws Exception{
+        System.out.println("Testing private method setPeriod() ...\n");
+        Loan loan = new Loan();
+
+        Class<? extends Loan> secretClass = loan.getClass();
+        Method setPeriodMethod = secretClass.getDeclaredMethod("setPeriod", int.class);
+
+        setPeriodMethod.setAccessible(true);
+
+        loan = new Loan(5000,1);
+        setPeriodMethod.invoke(loan,3);
+        assertEquals(3,loan.getPeriod());
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            Loan loan1 = new Loan(500,0);
+            Loan loan2 = new Loan(500,6);
+        });
+    }
+
+    //Order 9 to 11 is to test the parameters (positive test and negative test)
     @ParameterizedTest
     @CsvFileSource(resources = "loanParameters/PositiveParamTestFile.csv",numLinesToSkip = 2)
-    @Order(8)
+    @Order(9)
     public void positiveTest(double amount, int period,double expected){
         Loan loan = new Loan(amount,period);
         assertEquals(expected,loan.getRate());
@@ -178,50 +200,25 @@ class LoanTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "loanParameters/NegativeParamTestAmount.csv",numLinesToSkip = 2)
-    @Order(9)
-    public void negativeTestAmount(String amountString) {
-        try {
-            if(amountString == null){
-                assertThrows(NullPointerException.class, () -> {
-                    Loan loan = new Loan(Double.parseDouble(amountString), 3);
-                });
-            }
-            else {
-                double amount = Double.parseDouble(amountString);
-                assertThrows(IllegalArgumentException.class, () -> {
-                    Loan loan = new Loan(amount, 3);
-                });
-            }
-        }
-        catch(NumberFormatException e){
-            assertThrows(NumberFormatException.class, () -> {
-                Loan loan = new Loan(Double.parseDouble(amountString), 3);
-            });
-        }
+    @Order(10)
+    @DisplayName("Negative Testing for amount")
+    public void negativeTestAmount(double amount) {
+        assertThrows(IllegalArgumentException.class, () ->{
+            Loan loan = new Loan(amount,3);
+        });
     }
 
 
     @ParameterizedTest
     @CsvFileSource(resources = "loanParameters/NegativeParamTestPeriod.csv",numLinesToSkip = 2)
-    @Order(10)
-    public void negativeTestPeriod(String periodString){
-        try{
-            int period = Integer.parseInt(periodString);
-            if(period == 0 || period < 1 || period > 5){
-                assertThrows(IllegalArgumentException.class, () -> {
-                    Loan loan = new Loan(500,period);
-                });
-            }
-            else{
-                assertThrows(NullPointerException.class, () -> {
-                    Loan loan = new Loan(500,period);
-                });
-            }
-        }
-        catch(NumberFormatException e){
-            assertThrows(NumberFormatException.class, () -> {
-                Loan loan = new Loan(500,Integer.parseInt(periodString));
-            });
-        }
+    @Order(11)
+    @DisplayName("Negative Testing for period")
+    public void negativeTestPeriod(int period){
+        assertThrows(IllegalArgumentException.class, () -> {
+            Loan loan = new Loan(500,period);
+        });
     }
+
+
+
 }

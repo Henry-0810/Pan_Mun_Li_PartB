@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Loan.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">LoanTest Coverage Results</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Loan.java</span></div><h1>Loan.java</h1><pre class="source lang-java linenums">
+public class
+Loan {
+
+//----------------------------------
+//    Data Members
+//----------------------------------
+    // Constant for the number of months in a year
+<span class="fc" id="L9">    private final int MONTHS_IN_YEAR = 12;</span>
+    // The amount of the loan
+    private double loanAmount;
+    // Yearly interest rate
+    private double annualRate;
+    //The monthly interest rate
+    private double monthlyInterestRate;
+    // The number of monthly payments
+    private int numberOfPayments;
+
+    //----------------------------------
+//    Constructor
+//----------------------------------
+<span class="fc" id="L22">    public Loan() {</span>
+<span class="fc" id="L23">    }</span>
+
+    //Creates a new Loan object with passed values.
+<span class="fc" id="L26">    public Loan(double amount, int period) {</span>
+<span class="fc" id="L27">        setAmount(amount);</span>
+<span class="fc" id="L28">        setPeriod(period);</span>
+<span class="fc" id="L29">        setRate(period);</span>
+<span class="fc" id="L30">    }</span>
+
+
+    //Returns the loan amount.
+    public double getAmount() {
+<span class="fc" id="L35">        return loanAmount;</span>
+    }
+
+    //Returns the loan period in the number of years.
+    public int getPeriod()
+    {
+<span class="fc" id="L41">        return numberOfPayments / MONTHS_IN_YEAR;</span>
+    }
+
+    //Returns the annual interest rate.
+<span class="fc" id="L45">    public double getRate() { return annualRate; }</span>
+
+    //Returns the monthly payment
+    public double getMonthlyPayment() {
+        double monthlyPayment;
+<span class="fc" id="L50">        monthlyPayment = (loanAmount * monthlyInterestRate)</span>
+<span class="fc" id="L51">                / (1 - Math.pow(1 / (1 + monthlyInterestRate),</span>
+                numberOfPayments));
+<span class="fc" id="L53">        return monthlyPayment;</span>
+    }
+
+    //Returns the total payment
+    public double getTotalPayment() {
+        double totalPayment;
+<span class="fc" id="L59">        totalPayment = getMonthlyPayment() * numberOfPayments;</span>
+<span class="fc" id="L60">        return totalPayment;</span>
+    }
+
+    //Sets the loan amount of this loan.
+    private void setAmount(double amount) throws IllegalArgumentException {
+
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        if (amount &lt;= 0.0) {</span>
+<span class="fc" id="L67">            throw new IllegalArgumentException();</span>
+        }
+
+<span class="fc" id="L70">        loanAmount = amount;</span>
+
+<span class="fc" id="L72">    }</span>
+
+    //Sets the interest rate of this loan.
+    private void setRate(int period) {
+
+<span class="fc bfc" id="L77" title="All 4 branches covered.">        if((loanAmount &gt;=500) &amp;&amp; (loanAmount &lt;=5000)) {</span>
+<span class="pc bpc" id="L78" title="1 of 4 branches missed.">            if (period &gt;= 1 &amp;&amp; period &lt;= 3) {</span>
+<span class="fc" id="L79">                annualRate = 10;</span>
+
+            } else {
+
+<span class="fc" id="L83">                annualRate = 6;</span>
+            }
+        }
+<span class="fc bfc" id="L86" title="All 4 branches covered.">        else if ((loanAmount &gt;=5001) &amp;&amp; (loanAmount &lt;=10000))</span>
+        {
+<span class="pc bpc" id="L88" title="1 of 4 branches missed.">            if(period &gt;=1 &amp;&amp; period &lt;= 3 ){</span>
+<span class="fc" id="L89">                annualRate = 8;</span>
+
+            }
+
+            else
+            {
+<span class="fc" id="L95">                annualRate = 5;</span>
+            }
+        }
+        else
+        {
+<span class="fc" id="L100">            throw new IllegalArgumentException();</span>
+        }
+
+<span class="fc" id="L103">            monthlyInterestRate = annualRate / 100.0 / MONTHS_IN_YEAR;</span>
+<span class="fc" id="L104">        }</span>
+
+        //Sets the loan period of this loan.
+        private void setPeriod (int periodInYears)
+        {
+<span class="fc bfc" id="L109" title="All 4 branches covered.">            if (periodInYears &lt; 1 || periodInYears &gt; 5)</span>
+<span class="fc" id="L110">                throw new IllegalArgumentException();</span>
+            else
+<span class="fc" id="L112">                numberOfPayments = periodInYears * MONTHS_IN_YEAR;</span>
+<span class="fc" id="L113">        }</span>
+
+    }
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

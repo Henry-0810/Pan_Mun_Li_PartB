@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdbf169f-52c8-4ece-96db-6c78656cf88c" name="Changes" comment="testing private half way">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pan_Mun_Li_PartB.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Pan_Mun_Li_PartB.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/LoanParamTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/LoanPrivateTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test/LoanTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/LoanTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testResources/loanParameters/NegativeParamTestFileAmount.csv" beforeDir="false" afterPath="$PROJECT_DIR$/testResources/loanParameters/NegativeParamTestAmount.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testResources/loanParameters/PositiveParamTestFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/testResources/loanParameters/PositiveParamTestFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testResources/loanParameters/NegativeParamTestAmount.csv" beforeDir="false" afterPath="$PROJECT_DIR$/testResources/loanParameters/NegativeParamTestAmount.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testResources/loanParameters/NegativeParamTestPeriod.csv" beforeDir="false" afterPath="$PROJECT_DIR$/testResources/loanParameters/NegativeParamTestPeriod.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +22,7 @@
   </component>
   <component name="ExportToHTMLSettings">
     <option name="OPEN_IN_BROWSER" value="true" />
-    <option name="OUTPUT_DIRECTORY" value="C:\Users\t00229172\Desktop" />
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\t00229172\IdeaProjects\Pan_Mun_Li_PartB\Jacoco Report" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -57,12 +56,12 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/t00229172/Desktop",
+    "last_opened_file_path": "C:/Users/t00229172/IdeaProjects/Pan_Mun_Li_PartB/Jacoco Coverage Report",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
@@ -82,66 +81,9 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.LoanTest">
-    <configuration name="LoanPrivateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoanTest" type="JUnit" factoryName="JUnit">
       <module name="Pan_Mun_Li_PartB" />
-      <extension name="coverage" runner="jacoco">
-        <pattern>
-          <option name="PATTERN" value="Loan" />
-          <option name="ENABLED" value="false" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="AllLoanTest.LoanParamTest" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="AllLoanTest.LoanPrivateTest" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="AllLoanTest.LoanTest" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="AllLoanTest" />
-      <option name="MAIN_CLASS_NAME" value="AllLoanTest.LoanPrivateTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoanPrivateTest.testSetAmount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Pan_Mun_Li_PartB" />
-      <option name="PACKAGE_NAME" value="AllLoanTest" />
-      <option name="MAIN_CLASS_NAME" value="AllLoanTest.LoanPrivateTest" />
-      <option name="METHOD_NAME" value="testSetAmount" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoanPrivateTest.testSetRate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Pan_Mun_Li_PartB" />
-      <option name="PACKAGE_NAME" value="AllLoanTest" />
-      <option name="MAIN_CLASS_NAME" value="AllLoanTest.LoanPrivateTest" />
-      <option name="METHOD_NAME" value="testSetRate" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoanTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Pan_Mun_Li_PartB" />
-      <extension name="coverage" runner="jacoco">
-        <pattern>
-          <option name="PATTERN" value="Loan" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <extension name="coverage" sample_coverage="false" runner="jacoco" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="LoanTest" />
       <option name="METHOD_NAME" value="" />
@@ -156,24 +98,52 @@
       <option name="MAIN_CLASS_NAME" value="LoanTest" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoanTest.negativeTestNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Pan_Mun_Li_PartB" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LoanTest" />
+      <option name="METHOD_NAME" value="negativeTestNull(double)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoanTest.testGetters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Pan_Mun_Li_PartB" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LoanTest" />
+      <option name="METHOD_NAME" value="testGetters" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoanTest.testSetPeriod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Pan_Mun_Li_PartB" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LoanTest" />
+      <option name="METHOD_NAME" value="testSetPeriod" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="JUnit.LoanTest" />
-      <item itemvalue="JUnit.LoanTest (1)" />
-      <item itemvalue="JUnit.LoanPrivateTest" />
-      <item itemvalue="JUnit.LoanPrivateTest.testSetAmount" />
-      <item itemvalue="JUnit.LoanPrivateTest.testSetRate" />
+      <item itemvalue="JUnit.LoanTest.negativeTestNull" />
+      <item itemvalue="JUnit.LoanTest.testGetters" />
+      <item itemvalue="JUnit.LoanTest.testSetPeriod" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LoanTest.testSetPeriod" />
+        <item itemvalue="JUnit.LoanTest.testGetters" />
+        <item itemvalue="JUnit.LoanTest.negativeTestNull" />
         <item itemvalue="JUnit.LoanTest" />
-        <item itemvalue="JUnit.LoanTest (1)" />
-        <item itemvalue="JUnit.LoanPrivateTest" />
-        <item itemvalue="JUnit.LoanPrivateTest.testSetRate" />
-        <item itemvalue="JUnit.LoanPrivateTest.testSetAmount" />
       </list>
     </recent_temporary>
   </component>
@@ -190,6 +160,7 @@
       <workItem from="1679923162891" duration="6391000" />
       <workItem from="1679947785212" duration="9767000" />
       <workItem from="1680011139121" duration="4143000" />
+      <workItem from="1680086038622" duration="5362000" />
     </task>
     <task id="LOCAL-00001" summary="done">
       <created>1679869347229</created>
@@ -228,10 +199,16 @@
     <option name="LAST_COMMIT_MESSAGE" value="testing private half way" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Pan_Mun_Li_PartB$LoanTest_testGetters.ic" NAME="LoanTest.testGetters Coverage Results" MODIFIED="1680091076939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Pan_Mun_Li_PartB$Loan.exec" NAME="Loan Coverage Results" MODIFIED="1680089310640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>Loan</FILTER>
+      <FILTER>LoanTest</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/Pan_Mun_Li_PartB$LoanTest__1_.ic" NAME="LoanTest (1) Coverage Results" MODIFIED="1680015104895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Pan_Mun_Li_PartB$LoanTest.ic" NAME="LoanTest Coverage Results" MODIFIED="1680014477200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Pan_Mun_Li_PartB$LoanPrivateTest.exec" NAME="LoanPrivateTest Coverage Results" MODIFIED="1680014654028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/Pan_Mun_Li_PartB$LoanTest.exec" NAME="LoanTest Coverage Results" MODIFIED="1680091130292" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
